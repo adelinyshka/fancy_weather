@@ -1,0 +1,7 @@
+node_modules/
+*.log
+.babelrc
+.DS_Store
+yarn-error.log
+.idea/
+todo.txt
