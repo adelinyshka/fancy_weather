@@ -97,7 +97,7 @@ function createForm(lang = 'en', meas = 'C') {
   controlWrapper.append(refreshBtn, langSelect, measureC, measureF);
   inputGroup.append(inputText, inputGroupAppend);
   formWrapper.append(controlWrapper, inputGroup);
-  document.body.append(formWrapper);
+  document.body.prepend(formWrapper);
 
   return formWrapper;
 }
