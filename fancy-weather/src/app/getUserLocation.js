@@ -1,4 +1,5 @@
 import {getCurrPos} from "./getCurrPos";
+import { showError } from "./error";
 
 async function getUserLocation() {
   try {
@@ -6,7 +7,7 @@ async function getUserLocation() {
     return coords;
   } catch (err) {
     err.name = 'Geolocation Error';
-    renderError(err);
+    showError(err);
     throw new Error(`${err.name}(${err.code}): ${err.message}`);
   }
 }

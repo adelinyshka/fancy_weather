@@ -15,7 +15,6 @@ body {
 
 .form-wrapper {
   display: flex;
-  //justify-content: space-between;
   width: 100%;
   height: 38px;
   margin: 50px;
@@ -87,12 +86,8 @@ body {
 
 .form-wrapper .button-mic:active {
   border: 2px solid red;
-  animation: mic-anime 1.2s linear infinite;
   }
 
-.form-wrapper .icon-refresh--spin {
-  animation: spin-animation 0.5s infinite;
-  }
 
 .forecast-wrapper {
   display: flex;
@@ -104,8 +99,7 @@ body {
   overflow: hidden;
   font-size: 3rem;
   color: white;
-  border-radius: 10px;
-  backdrop-filter: blur(5px) contrast(0.5);
+  backdrop-filter: blur(20px) contrast(0.5);
   }
 
 .forecast-wrapper .location {
@@ -122,6 +116,7 @@ body {
 .forecast-wrapper .location p {
   font-size: 1rem;
   text-align: center;
+  color: #ffaeae;
   }
 
 .forecast-wrapper .date-time {
@@ -141,7 +136,7 @@ body {
   }
 
 .forecast-wrapper .forecast-current__temp {
-  margin-right: 20px;
+  //margin-right: 20px;
   }
 
 .forecast-wrapper .forecast-detail {
@@ -158,6 +153,8 @@ body {
   justify-content: space-around;
   width: 100%;
   font-size: 1.5rem;
+  text-align: center;
+  margin: 0 10px 10px 0;
   }
 
 .forecast-wrapper .forecast-daily__temp-hight {
@@ -176,10 +173,16 @@ body {
 .forecast-wrapper .forecast-daily__day {
   text-align: center;
   margin: 0 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
   }
 
 .forecast-wrapper .forecast-daily__week-day {
   margin: 0 5px;
+  color: #fdde82;
   }
 
 .forecast-wrapper .forecast-daily__icon {
@@ -230,8 +233,7 @@ body {
   width: 320px;
   background-color: white;
   border: 1px solid white;
-  border-radius: 10px;
-  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+  box-shadow: 8px 8px 26px 0.2rem grey;
   }
 
 .error-wrapper:hover {
@@ -247,40 +249,6 @@ body {
   margin: 45vh auto 0;
   padding: 5px 0;
   overflow: hidden;
-  }
-
-.dots {
-  position: relative;
-  width: 10px;
-  height: 10px;
-  background-color: #208bf1;
-  border-radius: 50%;
-  animation: dotFloating 3s infinite cubic-bezier(0.15, 0.6, 0.9, 0.1);
-  }
-
-.dots::before, .dots::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  display: inline-block;
-  }
-
-.dots::before {
-  left: -12px;
-  width: 10px;
-  height: 10px;
-  background-color: #afe102;
-  border-radius: 50%;
-  animation: dotFloatingBefore 3s infinite ease-in-out;
-  }
-
-.dots::after {
-  left: -24px;
-  width: 10px;
-  height: 10px;
-  background-color: #ff3270;
-  border-radius: 50%;
-  animation: dotFloatingAfter 3s infinite cubic-bezier(0.4, 0, 1, 1);
   }
 
 .dual-ring {
@@ -301,27 +269,7 @@ body {
   animation: dual-ring-anime 1.2s linear infinite;
   }
 
-@keyframes mic-anime {
-  0% {
-    font-size: 1rem;
-    color: red;
-    transform: rotate(0deg);
-    }
-  33% {
-    color: blue;
-    }
-  50% {
-    font-size: 2rem;
-    }
-  66% {
-    color: yellowgreen;
-    }
-  100% {
-    font-size: 1rem;
-    color: red;
-    transform: rotate(360deg);
-    }
-  }
+
 
 @keyframes dual-ring-anime {
   0% {
@@ -329,48 +277,6 @@ body {
     }
   100% {
     transform: rotate(360deg);
-    }
-  }
-
-@keyframes dotFloating {
-  0% {
-    left: calc(-50% - 5px);
-    }
-  75% {
-    left: calc(50% + 105px);
-    }
-  100% {
-    left: calc(50% + 105px);
-    }
-  }
-
-@keyframes dotFloatingBefore {
-  0% {
-    left: -50px;
-    }
-  50% {
-    left: -12px;
-    }
-  75% {
-    left: -50px;
-    }
-  100% {
-    left: -50px;
-    }
-  }
-
-@keyframes dotFloatingAfter {
-  0% {
-    left: -100px;
-    }
-  50% {
-    left: -24px;
-    }
-  75% {
-    left: -100px;
-    }
-  100% {
-    left: -100px;
     }
   }
 
@@ -414,4 +320,22 @@ body {
   .map-wrapper {
     width: 100%;
     }
+  }
+
+.btn,.form-control{
+  border-radius: 0;
+  }
+
+
+.modal-header {
+  border-bottom: 1px solid transparent;
+  }
+
+.modal-footer {
+  border-top: 1px solid transparent;
+  justify-content: center;
+  }
+
+.error-button {
+  width: 200px;
   }

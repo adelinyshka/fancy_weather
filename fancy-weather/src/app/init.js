@@ -1,20 +1,28 @@
-import {createForm} from "./createForm";
-import {createMap} from "./createMap";
+
 import {getUserLocation} from "./getUserLocation";
-import {getMapOnload} from "./ymap";
+import {createLayout} from "./createLayout";
+
 
 const lang = localStorage.getItem('lang') || 'ru';
 const meas = localStorage.getItem('meas') || 'C';
 
 async function init() {
-  await createForm();
-  await createMap();
   const location = await getUserLocation();
-  getMapOnload(location.latitude,location.longitude);
+  const forecast = await getForecast(location);
+  const { currently } = forecast;
+  const tags = getTags(currently);
+  const imageUrl = await getImageUrl(tags);
+
+  const timeInterval = await createLayout(
+    imageUrl,
+    forecast,
+    location,
+    lang,
+    meas
+  );
+
+  const map = await getMap(location, lang);
 }
 
-window.onload =()=> {
-  console.log('load')
-  init();
-};
+init();
 
