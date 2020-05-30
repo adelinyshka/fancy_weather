@@ -1,5 +1,5 @@
 
-function micHandler() {
+function turnOnVoiceRec() {
 
   // eslint-disable-next-line
   const recognizer = new webkitSpeechRecognition();
@@ -33,4 +33,4 @@ function micHandler() {
 
 }
 
-export { micHandler };
+export { turnOnVoiceRec };

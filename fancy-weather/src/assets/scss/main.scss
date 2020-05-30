@@ -17,7 +17,8 @@ body {
   display: flex;
   width: 100%;
   height: 38px;
-  margin: 50px;
+  margin: 20px 20px 20px 10px;
+  justify-content: space-between;
   }
 
 .form-wrapper .control-wrapper {
@@ -93,8 +94,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 500px;
-  height: fit-content;
+  width: 450px;
+  height: 500px;
   margin: 0 0 0 20px;
   overflow: hidden;
   font-size: 3rem;
@@ -198,15 +199,15 @@ body {
   flex-direction: column;
   align-items: flex-end;
   width: 450px;
-  height: 350px;
+  height: 500px;
   margin: 0 20px 0 0;
+
   }
 
 .map-wrapper .map {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 10px;
   }
 
 .map-wrapper .longitude,
@@ -270,7 +271,6 @@ body {
   }
 
 
-
 @keyframes dual-ring-anime {
   0% {
     transform: rotate(0deg);
@@ -289,21 +289,23 @@ body {
     }
   }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 950px) {
   .wrapper {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    }
+  .forecast-wrapper {
+    margin: 0;
+    }
+
+  .map-wrapper {
+    margin: 0;
     }
   }
 
-@media only screen and (max-width: 990px) {
-  .wrapper {
-    justify-content: center;
-    }
-  .map-wrapper,
-  .forecast-wrapper {
-    margin: 0 0 20px 0;
-    }
-  }
 
 @media only screen and (max-width: 600px) {
   .form-wrapper {
@@ -311,6 +313,7 @@ body {
     justify-content: center;
     align-items: center;
     }
+
   .form-wrapper .input-wrapper {
     margin: 20px;
     }
@@ -322,7 +325,7 @@ body {
     }
   }
 
-.btn,.form-control{
+.btn, .form-control {
   border-radius: 0;
   }
 
@@ -338,4 +341,72 @@ body {
 
 .error-button {
   width: 200px;
+  }
+
+.latitude, .longitude {
+  color: white;
+  padding: 7px 13px;
+  }
+
+.blockLL {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  background: #28a745;
+  }
+
+@media (max-width: 1024px) {
+  .form-wrapper{
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 186px;
+    align-items: center;
+    }
+
+  .blockLL {
+    flex-direction: column;
+    width: 200px;
+    text-align: center;
+    }
+
+  .forecast-wrapper .forecast-daily__temp-low {
+    font-size: 12px;
+    }
+  .forecast-wrapper .forecast-daily__temp-hight {
+    font-size: 20px;
+    }
+
+  .forecast-wrapper .forecast-current {
+    font-size: 5rem;
+    }
+
+  .forecast-wrapper .forecast-daily__week-day {
+    font-size: 18px;
+    }
+
+  .forecast-wrapper .location h3 {
+    font-size: 22px;
+    margin-top: 24px;
+    }
+
+  .icon-main {
+    width: 70px;
+    margin-left: 10px;
+    }
+
+
+
+  }
+.form-wrapper .button-mic {
+  position: absolute;
+  left: -36px;
+  top: 3px;
+  width: 34px;
+  height: 84%;
+  color: #fff;
+  background-color: #28a745;
+  outline: none;
+  border-radius: 0;
+  border: transparent;
   }

@@ -94,9 +94,22 @@ function createHeader(lang = 'en', degree = 'C') {
       break;
   }
 
+
+
+  const latitude = document.createElement('span');
+  latitude.classList.add('latitude');
+
+  const longitude = document.createElement('span');
+  longitude.classList.add('longitude');
+
+  const blockLL = document.querySelector('div');
+  blockLL.classList.add('blockLL');
+  blockLL.append(latitude,longitude);
+
   controlWrapper.append(changeBgBtn, selectLang, measureC, measureF);
   inputGroup.append(inputText, inputGroupAppend);
   formWrapper.append(controlWrapper, inputGroup);
+  formWrapper.append(blockLL);
 
   return formWrapper;
 }

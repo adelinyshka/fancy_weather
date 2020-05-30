@@ -1,17 +1,17 @@
 async function getForecast(location) {
-  const API_TOKEN = 'f11901ee631628df00a73fd6b08cef3e';
+  const api = 'f11901ee631628df00a73fd6b08cef3e';
   const { latitude, longitude } = location;
 
   const proxyUrl = 'https://evening-basin-27448.herokuapp.com/';
-  const URL = `https://api.darksky.net/forecast/${API_TOKEN}/${latitude},${longitude}?units=si&lang=en`;
+  const url = `https://api.darksky.net/forecast/${api}/${latitude},${longitude}?units=si&lang=en`;
 
   try {
-    const forecast = await fetch(proxyUrl + URL).then(res => res.json());
-    return forecast;
+    return await fetch(proxyUrl + url).then(res => res.json());
+
   } catch (err) {
     err.name = 'Forecast Error';
     err.message =
-      'Forecast fetch error or just cors-anywhere.herokuapp.com unavailable again';
+      'Problems with herokuapp proxy';
     showError(err);
     throw new Error(`${err.name}(${err.code}): ${err.message}`);
   }

@@ -1,22 +1,20 @@
 import {refreshHandler} from "./refreshHandler";
 import {searchHandler} from "./searchHandler";
-import {micHandler} from "./micHandler";
+import {turnOnVoiceRec} from "./turnOnVoiceRec";
 
-function measCHandler() {
+function setDegreeC() {
   const meas = 'C';
   localStorage.setItem('meas', meas);
   document.location.reload();
-
 }
 
-function measFHandler() {
+function setDegreeF() {
   const meas = 'F';
   localStorage.setItem('meas', meas);
   document.location.reload();
-
 }
 
-function langHandler() {
+function setLanguage() {
   const lang = document.querySelector('.lang-select').value.toLowerCase();
   localStorage.setItem('lang', lang);
   document.location.reload();
@@ -43,13 +41,13 @@ function initControls(tags, map, meas, timeInterval) {
     });
   });
 
-  langSelect.addEventListener('change', langHandler);
+  langSelect.addEventListener('change', setLanguage);
 
-  measureC.addEventListener('click', measCHandler);
+  measureC.addEventListener('click', setDegreeC);
 
-  measureF.addEventListener('click', measFHandler);
+  measureF.addEventListener('click', setDegreeF);
 
-  buttonMic.addEventListener('mousedown', micHandler);
+  buttonMic.addEventListener('mousedown', turnOnVoiceRec);
 }
 
-export { measCHandler, measFHandler, langHandler, initControls };
+export { setDegreeC, setDegreeF, setLanguage, initControls };

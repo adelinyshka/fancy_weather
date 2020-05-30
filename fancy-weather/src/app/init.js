@@ -8,7 +8,6 @@ import {getMap} from "./getMaps";
 import {
   initControls
 } from "./initHeaderBtns";
-import {renderLoader} from "./renderLoader";
 import {startPreloader} from "./preloader";
 
 const lang = localStorage.getItem('lang') || 'ru';
@@ -31,6 +30,8 @@ async function init() {
 
   const map = await getMap(location, lang);
   initControls(tags, map, meas, timeInterval);
+  const preloader = document.querySelector('.cssload-wrap');
+  preloader.classList.add('d-none');
 }
 startPreloader();
 

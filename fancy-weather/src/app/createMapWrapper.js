@@ -7,13 +7,7 @@ function createMapWrapper() {
   map.classList.add('map');
   map.setAttribute('id', 'map');
 
-  const latitude = document.createElement('span');
-  latitude.classList.add('latitude');
-
-  const longitude = document.createElement('span');
-  longitude.classList.add('longitude');
-
-  mapWrapper.append(map, latitude, longitude);
+  mapWrapper.append(map);
 
   return mapWrapper;
 }

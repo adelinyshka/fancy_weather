@@ -1,7 +1,6 @@
 import {data} from "./data";
-// import { getGeocode} from "./getGeoPoints";
 import {getBeGeo} from "./getBeGeo";
-import {getGeocode} from "./getMaps";
+import {getGeoPoints} from "./getMaps";
 import { celsiumToFarenheit,getRandomNumber, toFahrenheit, getDateTime,getTags,createBackground,toDegreesMinSec,  } from './utils';
 
 
@@ -36,7 +35,7 @@ async function getWeather(
   const { latitude, longitude } = location;
   let locality;
   if (lang !== 'be') {
-    const geo = await getGeocode([latitude, longitude], lang);
+    const geo = await getGeoPoints([latitude, longitude], lang);
     locality = geo.geoObjects.get(0).properties.getAll().balloonContentBody;
   } else {
     locality = await getBeGeo(`${latitude},${longitude}`);

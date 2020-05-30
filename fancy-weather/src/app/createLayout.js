@@ -1,7 +1,7 @@
 import {createHeader} from "./createHeader";
 import {getWeather} from './getWeather';
 import {createMapWrapper} from "./createMapWrapper";
-import {  getDateTime,createBackground, makeAnimatedIcons } from './utils';
+import { getDateTime,createBackground, makeAnimatedIcons } from './utils';
 
 
 async function createLayout(url, forecast, location, lang, degree) {
@@ -12,6 +12,7 @@ async function createLayout(url, forecast, location, lang, degree) {
 
   const weatherWrapper = await getWeather(forecast, location, lang, degree);
   wrapper.append(createHeader(lang, degree), weatherWrapper, createMapWrapper());
+
 
   body.innerHTML = '';
   body.appendChild(wrapper);

@@ -22,14 +22,12 @@ async function getMaps(lang) {
   }
 
   const api= 'c31788f1-0210-444b-803a-302a4f4cfa21';
-  // c31788f1-0210-444b-803a-302a4f4cfa21
-  //3b84c181-81c6-43d5-81ca-6531f3f83e81 - TH
+
   const url = `https://api-maps.yandex.ru/2.1/?apikey=${api}&lang=${apiLang}`;
 
   try {
-    const maps = await ymaps.load(url);
+    return await ymaps.load(url);
 
-    return maps;
   } catch (err) {
     err.name = 'getMaps API Error';
     err.message = 'its error from yandex';
@@ -56,7 +54,24 @@ async function getMap(loc, lang) {
     const map = new maps.Map('map', {
       center: [latitude, longitude],
       zoom: 8,
+    }, {
+      autoFitToViewport: 'always',
+      searchControlProvider: 'yandex#search'
     });
+    $('#toggler').click(toggle);
+    var myMap,
+      bigMap = false;
+    function toggle () {
+      bigMap = !bigMap;
+      if (bigMap) {
+        $('#map').removeClass('smallMap');
+      } else {
+        $('#map').addClass('smallMap');
+      }
+      if ($('#checkbox').prop('checked')) {
+        myMap.container.fitToViewport();
+      }
+    }
 
     return map;
   } catch (err) {
@@ -67,7 +82,7 @@ async function getMap(loc, lang) {
   }
 }
 
-async function getGeocode(val, lang) {
+async function getGeoPoints(val, lang) {
   try {
     const maps = await getMaps(lang);
     const myGeocode = await maps.geocode(val);
@@ -88,7 +103,7 @@ async function mapPanTo(map, lang) {
   const searchValue = inputEl.value.toString();
 
   try {
-    const geocode = await getGeocode(searchValue, lang);
+    const geocode = await getGeoPoints(searchValue, lang);
 
     const coords = geocode.geoObjects.get(0).geometry.getCoordinates();
 
@@ -105,4 +120,4 @@ async function mapPanTo(map, lang) {
   }
 }
 
-export {getMaps,getMap,mapPanTo,getGeocode};
+export {getMaps,getMap,mapPanTo,getGeoPoints};
