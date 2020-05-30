@@ -1,6 +1,7 @@
 import {createHeader} from "./createHeader";
+import {getWeather} from './getWeather';
 import {createMapWrapper} from "./createMapWrapper";
-
+import {  getDateTime,createBackground, makeAnimatedIcons } from './utils';
 
 
 async function createLayout(url, forecast, location, lang, degree) {
@@ -15,6 +16,16 @@ async function createLayout(url, forecast, location, lang, degree) {
   body.innerHTML = '';
   body.appendChild(wrapper);
 
+  makeAnimatedIcons(forecast);
+  createBackground(url);
+
+  const dateTime = document.querySelector('.date-time');
+  const timeInterval = setInterval(() => {
+    getDateTime(lang);
+  }, 1000);
+  dateTime.classList.remove('dots');
+
+  return timeInterval;
 }
 
 export { createLayout };
