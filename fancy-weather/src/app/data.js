@@ -155,6 +155,21 @@ const data = {
     fog: 'foggy',
     cloudy: 'cloud',
   },
+  sound: {
+    en: 'Today the temperature is ',
+    ru: 'Сегодня температура ',
+    be: 'Сення тэмпература '
+  },
+  degree: {
+    en: 'Degrees ',
+    ru: 'Градусов ',
+    be: 'Градусау '
+  },
+  windWord: {
+    en: 'meter in second ',
+    ru: 'метр в секунду ',
+    be: 'метр у сякунду '
+  }
 };
 
 export {data};

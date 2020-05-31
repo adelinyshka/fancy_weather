@@ -1,8 +1,10 @@
+import {data} from "./data";
 
 function turnOnVoiceRec() {
 
   // eslint-disable-next-line
-  const recognizer = new webkitSpeechRecognition();
+  window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+  const recognition = new window.SpeechRecognition();
   const lang = document.querySelector('.lang-select').value.toLowerCase();
   let langFormatted;
 
@@ -20,17 +22,19 @@ function turnOnVoiceRec() {
       break;
   }
 
-  recognizer.lang = langFormatted;
+  recognition.lang = langFormatted;
 
   function onRecognizeHandler(e) {
     const result = e.results[e.resultIndex];
     document.querySelector('.input-search').value = result[0].transcript;
     document.querySelector('.button-search').click();
   }
-  recognizer.onresult = onRecognizeHandler;
+  recognition.onresult = onRecognizeHandler;
 
-  recognizer.start();
+  recognition.start();
 
 }
+
+
 
 export { turnOnVoiceRec };

@@ -1,17 +1,17 @@
 import { showError } from './error';
 
 async function getBeGeo(val) {
-  const API_TOKEN = '2702874da5b5454c8455f832239d4b71';
+  const api = '2702874da5b5454c8455f832239d4b71';
 
-  const URL = `https://api.opencagedata.com/geocode/v1/json?q=${val}&key=${API_TOKEN}&pretty=1&no_annotations=1&language=be&limit=1`;
+  const url = `https://api.opencagedata.com/geocode/v1/json?q=${val}&key=${api}&pretty=1&no_annotations=1&language=be&limit=1`;
   try {
-    const data = await fetch(URL).then(res => res.json());
+    const data = await fetch(url).then(res => res.json());
     const { city, country } = data.results[0].components;
 
     if (!city) return `<h5>${country}</h5>`;
 
 
-    return `<p>${city} ,</p><h5>${country}</h5>`;
+    return `<h5>${city}, </h5><h5>${country}</h5>`;
   } catch (err) {
     err.name = 'getGeocode API Error';
     err.message = `Something went wrong. Do you look for: ${val}?`;

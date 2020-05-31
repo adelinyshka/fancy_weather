@@ -74,7 +74,8 @@ function toDegreesMinSec(input_degrees) {
 
 
 const Skycons = require('../../node_modules/skycons')(window);
-let skycons = new Skycons({"color": "#28a745"});
+let skycons = new Skycons({"color": "white"});
+
 function makeAnimatedIcons(forecast) {
 
   skycons.add('icon-main', forecast.currently.icon);

@@ -1,6 +1,7 @@
 import {refreshHandler} from "./refreshHandler";
 import {searchHandler} from "./searchHandler";
 import {turnOnVoiceRec} from "./turnOnVoiceRec";
+import {data} from "./data";
 
 function setDegreeC() {
   const meas = 'C';
@@ -29,6 +30,8 @@ function initControls(tags, map, meas, timeInterval) {
   const measureF = document.querySelector('.measure-f');
   let newInterval = timeInterval;
   let newTags = tags;
+  const btnPlayForecast = document.querySelector('.play-forecast');
+
 
   buttonRefresh.addEventListener('click', () => {
     refreshHandler(newTags);
@@ -39,6 +42,53 @@ function initControls(tags, map, meas, timeInterval) {
       newInterval = res.newInterval;
       newTags = res.newTags;
     });
+  });
+
+
+
+  let voiceMessage = new SpeechSynthesisUtterance();
+  voiceMessage.volume = 0.5;
+
+  function listenTotheWeather() {
+    var descriptionCard = document.querySelector('.forecast-short').innerText;
+    var feelsLikeCard = document.querySelector('.forecast-detail__feels').innerText;
+    var temp = document.querySelector('.forecast-current__temp').innerText.split(' ')[0];
+    var windCard = document.querySelector('.forecast-detail__wind').innerText;
+    var humidityCard = document.querySelector('.forecast-detail__humidity').innerText;
+    voiceMessage.rate = 1;
+    voiceMessage.pitch = 1;
+    voiceMessage.text = ""
+      .concat(data.sound[localStorage.getItem('lang')], " ")
+      .concat(temp, " ")
+      .concat(descriptionCard, ",\n  ")
+      .concat(feelsLikeCard, " ,\n")
+      .concat(windCard, " ,\n")
+      // .concat(data.windWord[localStorage.getItem('lang')], ",\n  ")
+      .concat(humidityCard, " ,\n");
+    speechSynthesis.speak(voiceMessage);
+  }
+
+
+
+  btnPlayForecast.addEventListener('click', function () {
+    window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+
+    const recognition = new window.SpeechRecognition();
+
+    if (localStorage.getItem('lang') === 'en') {
+      recognition.lang = 'en';
+      voiceMessage.lang = 'en';
+    } else if (localStorage.getItem('lang') === 'ru') {
+      recognition.lang = 'ru';
+      voiceMessage.lang = 'ru';
+    } else if (localStorage.getItem('lang') === 'be') {
+      recognition.lang = 'be';
+      voiceMessage.lang = 'be';
+    }
+
+    recognition.start();
+    listenTotheWeather();
+    recognition.stop();
   });
 
   langSelect.addEventListener('change', setLanguage);

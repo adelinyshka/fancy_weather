@@ -137,7 +137,6 @@ async function getWeather(
     icon.setAttribute('width', '54');
     icon.setAttribute('height', '54');
 
-    const br = document.createElement('br');
 
     el.append(spanDay, icon, spanTempHight, spanTempLow);
     fragment.appendChild(el);

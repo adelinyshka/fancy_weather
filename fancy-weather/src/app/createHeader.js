@@ -42,6 +42,11 @@ function createHeader(lang = 'en', degree = 'C') {
   measureF.classList.value = 'btn btn-success measure-f';
   measureF.textContent = '°F';
 
+  const btnPlayForecast = document.createElement('button');
+  btnPlayForecast.setAttribute('type', 'button');
+  btnPlayForecast.classList.value = 'btn btn-success play-forecast';
+  btnPlayForecast.innerHTML = '<i class="fas fa-play-circle fa-w-16"></i>';
+
   const elMic = document.createElement('i');
   elMic.classList.value = 'fas fa-microphone';
 
@@ -106,7 +111,7 @@ function createHeader(lang = 'en', degree = 'C') {
   blockLL.classList.add('blockLL');
   blockLL.append(latitude,longitude);
 
-  controlWrapper.append(changeBgBtn, selectLang, measureC, measureF);
+  controlWrapper.append(changeBgBtn, selectLang, measureC, measureF,btnPlayForecast);
   inputGroup.append(inputText, inputGroupAppend);
   formWrapper.append(controlWrapper, inputGroup);
   formWrapper.append(blockLL);
