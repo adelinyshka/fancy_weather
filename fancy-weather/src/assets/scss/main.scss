@@ -129,7 +129,7 @@ body {
 .forecast-wrapper .location p {
   font-size: 1rem;
   text-align: center;
-  color: #080601;
+  color: #d6ffd7;
   }
 
 .forecast-wrapper .date-time {
@@ -195,8 +195,7 @@ body {
 
 .forecast-wrapper .forecast-daily__week-day {
   margin: 0 5px;
-  color: #212529;
-  }
+  color: #d6ffd7;  }
 
 .forecast-wrapper .forecast-daily__icon {
   margin: 10px;
@@ -267,18 +266,18 @@ body {
 
 .dual-ring {
   display: inline-block;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   }
 
 .dual-ring::after {
   content: " ";
   display: block;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   margin: 50px;
-  border: 6px solid #ffffff;
-  border-color: #ffffff transparent #ffffff transparent;
+  border: 6px solid #28a745;
+  border-color: #28a745 transparent #28a745 transparent;
   border-radius: 50%;
   animation: dual-ring-anime 1.2s linear infinite;
   }
@@ -352,7 +351,7 @@ body {
   background: #28a745;
   }
 
-@media (max-width: 950px) {
+@media (max-width: 976px) {
 
   .forecast-wrapper .forecast-short {
     font-size: 1.5rem;
@@ -461,7 +460,7 @@ body {
   }
 
 .input-search {
-  margin: 0 10px;
+  margin: 0 10px 0 55px;
   }
 
 .microphone-active {
