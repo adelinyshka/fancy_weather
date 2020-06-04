@@ -3,6 +3,7 @@ import {searchHandler} from "./searchHandler";
 import {turnOnVoiceRec} from "./turnOnVoiceRec";
 import {data} from "./data";
 
+const btnSearch = document.querySelector('.button-search');
 function setDegreeC() {
   const meas = 'C';
   localStorage.setItem('meas', meas);
@@ -20,6 +21,28 @@ function setLanguage() {
   localStorage.setItem('lang', lang);
   document.location.reload();
 }
+
+const voiceMessage = new SpeechSynthesisUtterance();
+voiceMessage.volume = 0.5;
+
+function listenTotheWeather() {
+  const descriptionCard = document.querySelector('.forecast-short').innerText;
+  const feelsLikeCard = document.querySelector('.forecast-detail__feels').innerText;
+  const temp = document.querySelector('.forecast-current__temp').innerText.split(' ')[0];
+  const windCard = document.querySelector('.forecast-detail__wind').innerText;
+  const humidityCard = document.querySelector('.forecast-detail__humidity').innerText;
+  voiceMessage.rate = 1;
+  voiceMessage.pitch = 1;
+  voiceMessage.text = ""
+    .concat(data.sound[localStorage.getItem('lang')], " ")
+    .concat(temp, " ")
+    .concat(descriptionCard, ",\n  ")
+    .concat(feelsLikeCard, " ,\n")
+    .concat(windCard, " ,\n")
+    .concat(humidityCard, " ,\n");
+  speechSynthesis.speak(voiceMessage);
+}
+
 
 function initControls(tags, map, meas, timeInterval) {
   const buttonRefresh = document.querySelector('.button-refresh');
@@ -42,32 +65,9 @@ function initControls(tags, map, meas, timeInterval) {
       newInterval = res.newInterval;
       newTags = res.newTags;
     });
+
+
   });
-
-
-
-  let voiceMessage = new SpeechSynthesisUtterance();
-  voiceMessage.volume = 0.5;
-
-  function listenTotheWeather() {
-    var descriptionCard = document.querySelector('.forecast-short').innerText;
-    var feelsLikeCard = document.querySelector('.forecast-detail__feels').innerText;
-    var temp = document.querySelector('.forecast-current__temp').innerText.split(' ')[0];
-    var windCard = document.querySelector('.forecast-detail__wind').innerText;
-    var humidityCard = document.querySelector('.forecast-detail__humidity').innerText;
-    voiceMessage.rate = 1;
-    voiceMessage.pitch = 1;
-    voiceMessage.text = ""
-      .concat(data.sound[localStorage.getItem('lang')], " ")
-      .concat(temp, " ")
-      .concat(descriptionCard, ",\n  ")
-      .concat(feelsLikeCard, " ,\n")
-      .concat(windCard, " ,\n")
-      // .concat(data.windWord[localStorage.getItem('lang')], ",\n  ")
-      .concat(humidityCard, " ,\n");
-    speechSynthesis.speak(voiceMessage);
-  }
-
 
 
   btnPlayForecast.addEventListener('click', function () {
@@ -98,6 +98,9 @@ function initControls(tags, map, meas, timeInterval) {
   measureF.addEventListener('click', setDegreeF);
 
   buttonMic.addEventListener('mousedown', turnOnVoiceRec);
+
 }
+
+
 
 export { setDegreeC, setDegreeF, setLanguage, initControls };

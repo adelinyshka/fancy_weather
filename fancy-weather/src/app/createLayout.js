@@ -22,7 +22,7 @@ async function createLayout(url, forecast, location, lang, degree) {
 
   const dateTime = document.querySelector('.date-time');
   const timeInterval = setInterval(() => {
-    getDateTime(lang);
+    dateTime.textContent = getDateTime(lang);
   }, 1000);
   dateTime.classList.remove('dots');
 

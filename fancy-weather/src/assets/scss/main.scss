@@ -1,28 +1,21 @@
-html {
-	height: 100%;
-	}
-
 body {
   margin: 0;
   background: black;
   width: 100%;
-  box-sizing: border-box;
   font-family: 'Exo', sans-serif;
   font-size: 16px;
   color: black;
   position: relative;
-  min-height: 100%;
+  background-size: cover;
   }
 
 .wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  //width: 1024px;
   min-height: 100vh;
   margin: 0 auto;
   background-color: rgba(130, 138, 145, 0.1);
-  //background: black;
   padding-bottom: 50px;
 
   }
@@ -106,6 +99,8 @@ body {
 
 
 .forecast-wrapper {
+  padding: 10px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,6 +118,8 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+
   }
 
 .forecast-wrapper .location h3 {
@@ -160,7 +157,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
-  font-size: 1rem;
+  font-size: 14px;
   }
 
 .forecast-wrapper .forecast-daily {
@@ -168,7 +165,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
   margin: 0 10px 10px 0;
   }
@@ -357,6 +354,11 @@ body {
 
 @media (max-width: 950px) {
 
+  .forecast-wrapper .forecast-short {
+    font-size: 1.5rem;
+    }
+
+
   .forecast-wrapper .forecast-detail {
     width: 86%;
     margin: 0;
@@ -368,6 +370,8 @@ body {
   .forecast-wrapper {
     width: 90%;
     margin: 0;
+    height: fit-content;
+
     }
 
   .wrapper {
@@ -408,7 +412,8 @@ body {
     }
 
   .forecast-wrapper .forecast-current {
-    font-size: 5rem;
+    font-size: 3rem;
+    margin-left: 10px;
     }
 
   .forecast-wrapper .forecast-daily__week-day {
@@ -422,14 +427,18 @@ body {
 
   .icon-main {
     width: 70px;
-    margin-left: 10px;
+    margin: 0px 17px;
     }
 
   }
 
+.icon-main {
+  margin: 0px 26px;
+  }
+
 .form-wrapper .button-mic {
   position: absolute;
-  left: -36px;
+  left: -46px;
   top: 3px;
   width: 34px;
   height: 84%;
@@ -453,4 +462,8 @@ body {
 
 .input-search {
   margin: 0 10px;
+  }
+
+.microphone-active {
+  color: red;
   }

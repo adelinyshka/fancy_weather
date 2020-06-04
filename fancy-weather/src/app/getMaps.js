@@ -54,10 +54,27 @@ async function getMap(loc, lang) {
     const map = new maps.Map('map', {
       center: [latitude, longitude],
       zoom: 8,
+      controls: [],
     }, {
       autoFitToViewport: 'always',
       searchControlProvider: 'yandex#search'
     });
+
+
+    var myGeoObject = new maps.GeoObject({
+      geometry: {
+        type: "Point", // тип геометрии - точка
+        coordinates: [latitude, longitude] // координаты точки
+      }
+    });
+
+    map.geoObjects.add(myGeoObject);
+
+
+
+
+
+
     $('#toggler').click(toggle);
     var myMap,
       bigMap = false;
@@ -68,6 +85,7 @@ async function getMap(loc, lang) {
       } else {
         $('#map').addClass('smallMap');
       }
+
       if ($('#checkbox').prop('checked')) {
         myMap.container.fitToViewport();
       }

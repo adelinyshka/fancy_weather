@@ -69,7 +69,7 @@ async function getWeather(
   tempSpan.classList.add('forecast-current__temp');
   tempSpan.textContent = `${currentTemp}°`;
 
-  forecastCurrent.append(tempSpan, mainIcon);
+  forecastCurrent.append(tempSpan, mainIcon,forecastShort,);
 
   const feelsSpan = document.createElement('span');
   feelsSpan.classList.add('forecast-detail__feels');
@@ -150,7 +150,7 @@ async function getWeather(
   forecastWrapper.append(
     locationEl,
     dateTime,
-    forecastShort,
+
     forecastCurrent,
     forecastDetail,
     forecastDaily
