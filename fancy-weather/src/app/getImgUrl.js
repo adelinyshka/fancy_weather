@@ -13,7 +13,8 @@ async function getImageUrl(tags) {
     const photo = datas.photos.photo[num];
 
     const imageURL = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_b.jpg`;
-
+    console.log('API Request: season: ' + season + ', daytime: ' + daytime + ', forecast:' +
+      ' ' + forecast);
 
     return imageURL;
 
