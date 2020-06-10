@@ -51,7 +51,7 @@ async function getWeather(
   const dateTime = document.createElement('div');
   dateTime.classList.value = 'date-time dots';
 
-  const forecastShort = document.createElement('span');
+  const forecastShort = document.createElement('div');
   forecastShort.classList.add('forecast-short');
   forecastShort.textContent = arrayOfLanguages.weather[currently.icon];
 
@@ -69,7 +69,7 @@ async function getWeather(
   tempSpan.classList.add('forecast-current__temp');
   tempSpan.textContent = `${currentTemp}°`;
 
-  forecastCurrent.append(tempSpan, mainIcon,forecastShort,);
+  forecastCurrent.append(tempSpan, mainIcon);
 
   const feelsSpan = document.createElement('span');
   feelsSpan.classList.add('forecast-detail__feels');
@@ -152,6 +152,7 @@ async function getWeather(
     dateTime,
 
     forecastCurrent,
+    forecastShort,
     forecastDetail,
     forecastDaily
   );

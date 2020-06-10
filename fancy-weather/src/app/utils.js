@@ -71,8 +71,6 @@ function toDegreesMinSec(input_degrees) {
   return `${direction}${degrees}° ${minutes}' ${seconds}"`;
 }
 
-
-
 const Skycons = require('../../node_modules/skycons')(window);
 let skycons = new Skycons({"color": "white"});
 
