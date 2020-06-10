@@ -26,7 +26,7 @@ function getTags(curr) {
     dayTime = 'day';
   } else if (hours >= 18 && hours <= 20) {
     dayTime = 'evening';
-  } else {
+  } else if (hours >= 21 && hours <= 5) {
     dayTime = 'night';
   }
 

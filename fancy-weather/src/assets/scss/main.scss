@@ -185,18 +185,18 @@ body {
   }
 
 .forecast-wrapper .forecast-short {
-  font-size: 2rem;
+  font-size: 1.6rem;
+  padding-bottom: 13px;
   }
 
 .forecast-wrapper .forecast-current {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 6rem;
   }
 
 .forecast-wrapper .forecast-current__temp {
-  //margin-right: 20px;
+  font-size: 5rem;
   }
 
 .forecast-wrapper .forecast-detail {
@@ -401,13 +401,15 @@ body {
 @media (max-width: 976px) {
 
   .forecast-wrapper .forecast-short {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    padding-bottom: 10px;
     }
 
 
   .forecast-wrapper .forecast-detail {
     width: 86%;
     margin: 0;
+    font-size: 18px;
     }
 
   .forecast-wrapper .forecast-daily {
@@ -469,6 +471,7 @@ body {
   .forecast-wrapper .location h3 {
     font-size: 22px;
     margin-top: 24px;
+    margin-bottom: 0;
     }
 
   .icon-main {

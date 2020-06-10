@@ -59,8 +59,8 @@ async function getWeather(
   const mainIcon = document.createElement('canvas');
   mainIcon.classList.add('icon-main');
   mainIcon.setAttribute('id', 'icon-main');
-  mainIcon.setAttribute('width', '108');
-  mainIcon.setAttribute('height', '108');
+  mainIcon.setAttribute('width', '70');
+  mainIcon.setAttribute('height', '70');
 
   const forecastCurrent = document.createElement('div');
   forecastCurrent.classList.add('forecast-current');
