@@ -1,4 +1,4 @@
-import {data} from "./data";
+import { data } from './data';
 
 function celsiumToFarenheit(val) {
   if (!val || typeof val !== 'number') {
@@ -42,18 +42,18 @@ function getDateTime(lang, gmtOffset = 10800) {
   return dateTime;
 }
 
-function toDegreesMinSec(input_degrees) {
-  if (typeof input_degrees !== 'number') {
+function toDegreesMinSec(inputDegrees) {
+  if (typeof inputDegrees !== 'number') {
     throw new Error('wrong arguments');
   }
 
   let direction = '';
-  if (input_degrees < 0) {
+  if (inputDegrees < 0) {
     direction = '-';
   }
 
-  let degrees = parseInt(input_degrees, 10);
-  const minFloat = Math.abs((input_degrees - degrees) * 60);
+  let degrees = parseInt(inputDegrees, 10);
+  const minFloat = Math.abs((inputDegrees - degrees) * 60);
   let minutes = Math.floor(minFloat);
   const secFloat = (minFloat - minutes) * 60;
   let seconds = Math.round(secFloat);
@@ -68,30 +68,35 @@ function toDegreesMinSec(input_degrees) {
     minutes = 0;
   }
 
-  return `${direction}${degrees}° ${minutes}' ${seconds}"`;
+  return `${direction}${degrees}° ${minutes}' ${seconds}" `;
 }
 
 const Skycons = require('../../node_modules/skycons')(window);
-let skycons = new Skycons({"color": "white"});
+
+const skycons = new Skycons({ color: 'white' });
+
 
 function makeAnimatedIcons(forecast) {
-
   skycons.add('icon-main', forecast.currently.icon);
+
   skycons.add(
     document.querySelector('.icon-daily-0'),
-    forecast.daily.data[0].icon
+    forecast.daily.data[0].icon,
   );
+
   skycons.add(
     document.querySelector('.icon-daily-1'),
-    forecast.daily.data[1].icon
+    forecast.daily.data[1].icon,
   );
+
   skycons.add(
     document.querySelector('.icon-daily-2'),
-    forecast.daily.data[2].icon
+    forecast.daily.data[2].icon,
   );
-  skycons.play();
 
+  skycons.play();
 }
+
 
 function getRandomNumber(num) {
   if (!num || typeof num !== 'number' || num < 0) {
@@ -101,5 +106,11 @@ function getRandomNumber(num) {
   return Math.floor(Math.random() * num);
 }
 
-
-export {getRandomNumber,celsiumToFarenheit,createBackground,getDateTime,toDegreesMinSec,makeAnimatedIcons};
+export {
+  getRandomNumber,
+  celsiumToFarenheit,
+  createBackground,
+  getDateTime,
+  toDegreesMinSec,
+  makeAnimatedIcons,
+};

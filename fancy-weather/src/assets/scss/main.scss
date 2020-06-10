@@ -20,7 +20,6 @@ body {
   margin: 0 auto;
   background-color: rgba(130, 138, 145, 0.1);
   padding-bottom: 50px;
-
   }
 
 .form-wrapper {
@@ -42,7 +41,6 @@ body {
   width: 300px;
   margin: 0 10px 0 5px;
   }
-
 
 
 @keyframes sheen {
@@ -81,6 +79,7 @@ body {
   &:hover {
     background-color: $color;
     color: #fff;
+
     &:before {
       transform: skewX(-45deg) translateX(13.5em);
       transition: all 0.5s ease-in-out;
@@ -103,19 +102,20 @@ body {
   margin-right: 10px;
   color: white;
   background-color: $color;
-  border-color: #378576;
+  border-color: $color;
   }
 
 .form-wrapper .lang-select:hover, .form-wrapper .lang-select:focus {
   color: white;
-  background-color: #218838;
-  border-color: #218838;
+  background-color: $color;
+  border-color: $color;
   cursor: pointer;
-
   }
 
-.form-wrapper .measure-c {
+.form-wrapper .measure-c,
+.form-wrapper .measure-f {
   margin-right: 10px;
+  width: 42px;
   }
 
 .form-wrapper .input-group-append {
@@ -135,11 +135,6 @@ body {
   outline: none;
   }
 
-.form-wrapper .button-mic:focus, .form-wrapper .button-mic:hover {
-  background-color: #fe5e5e;
-  border-color: #ac4242;
-  }
-
 .form-wrapper .button-mic:active {
   border: 2px solid red;
   }
@@ -147,7 +142,6 @@ body {
 
 .forecast-wrapper {
   padding: 10px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -481,6 +475,7 @@ body {
 
   }
 
+
 .icon-main {
   margin: 0px 26px;
   }
@@ -498,21 +493,16 @@ body {
   border: transparent;
 
   &:hover,
-  &:focus,
-  &:active {
+  &:focus {
     background-color: white;
     color: $color;
     }
   }
 
 .play-forecast {
-  margin: 0 10px;
+  margin: 0 10px 0 0;
   }
 
 .input-search {
   margin: 0 10px 0 55px;
-  }
-
-.microphone-active {
-  color: red;
   }

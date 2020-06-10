@@ -1,7 +1,7 @@
-import {showError} from "./error";
 import ymaps from 'ymaps';
-import { toDegreesMinSec } from "./utils";
-import {data} from "./data";
+import { showError } from './error';
+import { toDegreesMinSec } from './utils';
+import { data } from './data';
 
 async function getMaps(lang) {
   let apiLang;
@@ -21,13 +21,12 @@ async function getMaps(lang) {
       break;
   }
 
-  const api= 'c31788f1-0210-444b-803a-302a4f4cfa21';
+  const api = 'c31788f1-0210-444b-803a-302a4f4cfa21';
 
   const url = `https://api-maps.yandex.ru/2.1/?apikey=${api}&lang=${apiLang}`;
 
   try {
     return await ymaps.load(url);
-
   } catch (err) {
     err.name = 'getMaps API Error';
     err.message = 'its error from yandex';
@@ -55,41 +54,22 @@ async function getMap(loc, lang) {
       center: [latitude, longitude],
       zoom: 8,
       controls: [],
+
     }, {
       autoFitToViewport: 'always',
-      searchControlProvider: 'yandex#search'
+      searchControlProvider: 'yandex#search',
     });
 
 
-    var myGeoObject = new maps.GeoObject({
+    const myGeoObject = new maps.GeoObject({
       geometry: {
-        type: "Point", // тип геометрии - точка
-        coordinates: [latitude, longitude] // координаты точки
-      }
+        type: 'Point', // тип геометрии - точка
+        coordinates: [latitude, longitude], // координаты точки
+      },
     });
 
     map.geoObjects.add(myGeoObject);
 
-
-
-
-
-
-    $('#toggler').click(toggle);
-    var myMap,
-      bigMap = false;
-    function toggle () {
-      bigMap = !bigMap;
-      if (bigMap) {
-        $('#map').removeClass('smallMap');
-      } else {
-        $('#map').addClass('smallMap');
-      }
-
-      if ($('#checkbox').prop('checked')) {
-        myMap.container.fitToViewport();
-      }
-    }
 
     return map;
   } catch (err) {
@@ -116,7 +96,6 @@ async function getGeoPoints(val, lang) {
 
 
 async function mapPanTo(map, lang) {
-
   const inputEl = document.querySelector('.input-search');
   const searchValue = inputEl.value.toString();
 
@@ -138,4 +117,6 @@ async function mapPanTo(map, lang) {
   }
 }
 
-export {getMaps,getMap,mapPanTo,getGeoPoints};
+export {
+  getMaps, getMap, mapPanTo, getGeoPoints,
+};

@@ -1,5 +1,4 @@
 function createMapWrapper() {
-
   const mapWrapper = document.createElement('div');
   mapWrapper.classList.value = 'map-w dual-ring';
 
@@ -12,4 +11,4 @@ function createMapWrapper() {
   return mapWrapper;
 }
 
-export {createMapWrapper};
+export { createMapWrapper };

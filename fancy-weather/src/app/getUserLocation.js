@@ -1,5 +1,5 @@
-import {getCurrPos} from "./getCurrPos";
-import { showError } from "./error";
+import { getCurrPos } from './getCurrPos';
+import { showError } from './error';
 
 async function getUserLocation() {
   try {
@@ -12,4 +12,4 @@ async function getUserLocation() {
   }
 }
 
-export {getUserLocation};
+export { getUserLocation };

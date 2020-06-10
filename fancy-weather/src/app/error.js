@@ -1,4 +1,3 @@
-
 function errBtnHandler(e) {
   if (e.keyCode === 13 || e.type === 'click') {
     document.querySelector('.fake').remove();

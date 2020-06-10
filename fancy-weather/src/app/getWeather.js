@@ -1,19 +1,17 @@
-import {data} from "./data";
-import {getBeGeo} from "./getBeGeo";
-import {getGeoPoints} from "./getMaps";
-import { celsiumToFarenheit,getRandomNumber, toFahrenheit, getDateTime,getTags,createBackground,toDegreesMinSec,  } from './utils';
-
+import { data } from './data';
+import { getBeGeo } from './getBeGeo';
+import { getGeoPoints } from './getMaps';
+import { celsiumToFarenheit } from './utils';
 
 async function getWeather(
   forecastData,
   location,
   lang,
-  degree
+  degree,
 ) {
-
   const today = new Date();
   const dayOfWeek = today.getDay();
-  const arrayOfLanguages =  data[lang];
+  const arrayOfLanguages = data[lang];
   const { currently, daily } = forecastData;
 
   let currentTemp;
@@ -78,13 +76,13 @@ async function getWeather(
   const windSpan = document.createElement('span');
   windSpan.classList.add('forecast-detail__wind');
   windSpan.textContent = `${arrayOfLanguages.other[5]} ${Math.round(
-    currently.windSpeed
+    currently.windSpeed,
   )}${arrayOfLanguages.other[6]}`;
 
   const humiditySpan = document.createElement('span');
   humiditySpan.classList.add('forecast-detail__humidity');
   humiditySpan.textContent = `${arrayOfLanguages.other[7]} ${Math.round(
-    currently.humidity * 100
+    currently.humidity * 100,
   )}%`;
 
   const forecastDetail = document.createElement('div');
@@ -154,10 +152,10 @@ async function getWeather(
     forecastCurrent,
     forecastShort,
     forecastDetail,
-    forecastDaily
+    forecastDaily,
   );
 
   return forecastWrapper;
 }
 
-export {getWeather};
+export { getWeather };

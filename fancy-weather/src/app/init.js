@@ -1,14 +1,13 @@
-
-import {getUserLocation} from "./getUserLocation";
-import {getForecast} from "./getForecast";
-import {getTags} from "./getTags";
-import {getImageUrl} from "./getImgUrl";
-import {createLayout} from "./createLayout";
-import {getMap} from "./getMaps";
+import { getUserLocation } from './getUserLocation';
+import { getForecast } from './getForecast';
+import { getTags } from './getTags';
+import { getImageUrl } from './getImgUrl';
+import { createLayout } from './createLayout';
+import { getMap } from './getMaps';
 import {
-  initControls
-} from "./initHeaderBtns";
-import {startPreloader} from "./preloader";
+  initControls,
+} from './initHeaderBtns';
+import { startPreloader } from './preloader';
 
 const lang = localStorage.getItem('lang') || 'ru';
 const meas = localStorage.getItem('meas') || 'C';
@@ -25,7 +24,7 @@ async function init() {
     forecast,
     location,
     lang,
-    meas
+    meas,
   );
 
   const map = await getMap(location, lang);
@@ -33,7 +32,8 @@ async function init() {
   const preloader = document.querySelector('.cssload-wrap');
   preloader.classList.add('d-none');
 }
+
 startPreloader();
 
-init();
 
+init();

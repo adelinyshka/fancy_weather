@@ -1,12 +1,12 @@
-import {data} from "./data";
+import { data } from './data';
 
 function getTags(curr) {
   if (
-    !(curr instanceof Object) ||
-    !curr.time ||
-    !curr.icon ||
-    typeof curr.time !== 'number' ||
-    typeof curr.icon !== 'string'
+    !(curr instanceof Object)
+    || !curr.time
+    || !curr.icon
+    || typeof curr.time !== 'number'
+    || typeof curr.icon !== 'string'
   ) {
     throw new Error('wrong arguments');
   }
@@ -26,7 +26,7 @@ function getTags(curr) {
     dayTime = 'day';
   } else if (hours >= 18 && hours <= 20) {
     dayTime = 'evening';
-  } else if (hours >= 21 && hours <= 5) {
+  } else if (hours >= 21 || hours <= 5) {
     dayTime = 'night';
   }
 
@@ -37,11 +37,11 @@ function getTags(curr) {
     yearTime = 'summer';
   } else if (month >= 8 && month <= 10) {
     yearTime = 'autumn';
-  } else {
+  } else if (month >= 11 || month <= 1) {
     yearTime = 'winter';
   }
 
   return [yearTime, dayTime, weather];
 }
 
-export {getTags};
+export { getTags };

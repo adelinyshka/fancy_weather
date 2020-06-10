@@ -1,19 +1,20 @@
-import {showError} from "./error";
-import {getMap} from "./getMaps";
-import {createBackground, getDateTime, toDegreesMinSec,makeAnimatedIcons } from './utils';
-import {getTags} from "./getTags";
-import {getImageUrl} from "./getImgUrl";
-import {getForecast} from "./getForecast";
-import {getWeather} from "./getWeather";
-// import {makeAnimatedIcons} from "./makeAnimatedIcons";
-import {getTimezone} from "./getTimezone";
-import {data} from "./data";
-import {mapPanTo} from "./getMaps";
-
+import { showError } from './error';
+import {
+  createBackground,
+  getDateTime,
+  toDegreesMinSec,
+  makeAnimatedIcons,
+} from './utils';
+import { getTags } from './getTags';
+import { getImageUrl } from './getImgUrl';
+import { getForecast } from './getForecast';
+import { getWeather } from './getWeather';
+import { getTimezone } from './getTimezone';
+import { data } from './data';
+import { mapPanTo } from './getMaps';
 
 
 async function searchHandler(e, map, meas, timeInterval, tags) {
-
   e.preventDefault();
 
   const inputSearch = document.querySelector('.input-search');

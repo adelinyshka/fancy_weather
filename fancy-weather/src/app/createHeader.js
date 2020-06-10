@@ -1,4 +1,4 @@
-import {data} from './data';
+import { data } from './data';
 
 function createHeader(lang = 'en', degree = 'C') {
   const [search, placeholder] = data[lang].other;
@@ -100,7 +100,6 @@ function createHeader(lang = 'en', degree = 'C') {
   }
 
 
-
   const latitude = document.createElement('span');
   latitude.classList.add('latitude');
 
@@ -109,9 +108,9 @@ function createHeader(lang = 'en', degree = 'C') {
 
   const blockLL = document.querySelector('div');
   blockLL.classList.add('blockLL');
-  blockLL.append(latitude,longitude);
+  blockLL.append(latitude, longitude);
 
-  controlWrapper.append(changeBgBtn, selectLang, measureC, measureF,btnPlayForecast);
+  controlWrapper.append(changeBgBtn, selectLang, measureC, measureF, btnPlayForecast);
   inputGroup.append(inputText, inputGroupAppend);
   formWrapper.append(controlWrapper, inputGroup);
   formWrapper.append(blockLL);

@@ -1,9 +1,8 @@
-import {refreshHandler} from "./refreshHandler";
-import {searchHandler} from "./searchHandler";
-import {turnOnVoiceRec} from "./turnOnVoiceRec";
-import {data} from "./data";
+import { refreshHandler } from './refreshHandler';
+import { searchHandler } from './searchHandler';
+import { turnOnVoiceRec } from './turnOnVoiceRec';
+import { data } from './data';
 
-const btnSearch = document.querySelector('.button-search');
 function setDegreeC() {
   const meas = 'C';
   localStorage.setItem('meas', meas);
@@ -33,13 +32,13 @@ function listenTotheWeather() {
   const humidityCard = document.querySelector('.forecast-detail__humidity').innerText;
   voiceMessage.rate = 1;
   voiceMessage.pitch = 1;
-  voiceMessage.text = ""
-    .concat(data.sound[localStorage.getItem('lang')], " ")
-    .concat(temp, " ")
-    .concat(descriptionCard, ",\n  ")
-    .concat(feelsLikeCard, " ,\n")
-    .concat(windCard, " ,\n")
-    .concat(humidityCard, " ,\n");
+  voiceMessage.text = ''
+    .concat(data.sound[localStorage.getItem('lang')], ' ')
+    .concat(temp, ' ')
+    .concat(descriptionCard, ',\n  ')
+    .concat(feelsLikeCard, ' ,\n')
+    .concat(windCard, ' ,\n')
+    .concat(humidityCard, ' ,\n');
   speechSynthesis.speak(voiceMessage);
 }
 
@@ -60,17 +59,15 @@ function initControls(tags, map, meas, timeInterval) {
     refreshHandler(newTags);
   });
 
-  buttonSearch.addEventListener('click', e => {
-    searchHandler(e, map, meas, newInterval, tags).then(res => {
+  buttonSearch.addEventListener('click', (e) => {
+    searchHandler(e, map, meas, newInterval, tags).then((res) => {
       newInterval = res.newInterval;
       newTags = res.newTags;
     });
-
-
   });
 
 
-  btnPlayForecast.addEventListener('click', function () {
+  btnPlayForecast.addEventListener('click', () => {
     window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
 
     const recognition = new window.SpeechRecognition();
@@ -98,9 +95,9 @@ function initControls(tags, map, meas, timeInterval) {
   measureF.addEventListener('click', setDegreeF);
 
   buttonMic.addEventListener('mousedown', turnOnVoiceRec);
-
 }
 
 
-
-export { setDegreeC, setDegreeF, setLanguage, initControls };
+export {
+  setDegreeC, setDegreeF, setLanguage, initControls, listenTotheWeather,
+};
