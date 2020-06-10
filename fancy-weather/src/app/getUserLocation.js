@@ -6,7 +6,7 @@ async function getUserLocation() {
     const { coords } = await getCurrPos();
     return coords;
   } catch (err) {
-    err.name = 'Geolocation Error';
+    err.name = 'User location Error';
     showError(err);
     throw new Error(`${err.name}(${err.code}): ${err.message}`);
   }

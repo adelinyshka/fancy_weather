@@ -28,8 +28,8 @@ async function getMaps(lang) {
   try {
     return await ymaps.load(url);
   } catch (err) {
-    err.name = 'getMaps API Error';
-    err.message = 'its error from yandex';
+    err.name = 'Yandex Maps API Error in getMaps';
+    err.message = 'Its error from yandex';
     showError(err);
     throw new Error(`${err.name}(${err.code}): ${err.message}`);
   }
@@ -73,8 +73,8 @@ async function getMap(loc, lang) {
 
     return map;
   } catch (err) {
-    err.name = 'getMap API Error';
-    err.message = 'yandex error';
+    err.name = 'Yandex Maps API Error in getMap';
+    err.message = 'Yandex error';
     showError(err);
     throw new Error(`${err.name}(${err.code}): ${err.message}`);
   }
@@ -84,11 +84,10 @@ async function getGeoPoints(val, lang) {
   try {
     const maps = await getMaps(lang);
     const myGeocode = await maps.geocode(val);
-
     return myGeocode;
   } catch (err) {
-    err.name = 'getGeocode API Error';
-    err.message = `just yandex.value: ${val},lang: ${lang},message: ${err.message}`;
+    err.name = 'Yandex Map API Error in getGeoPoints';
+    err.message = `Ya trouble: ${val},lang: ${lang},message: ${err.message}`;
     showError(err);
     throw new Error(`${err.name}(${err.code}): ${err.message}`);
   }
@@ -108,8 +107,8 @@ async function mapPanTo(map, lang) {
 
     return coords;
   } catch (err) {
-    err.name = 'getGeocode API Error';
-    err.message = `interesting place: "${searchValue}". try again`;
+    err.name = 'Yandex Map API Error in mapPanTo';
+    err.message = `Not find: "${searchValue}". Try again, please`;
     showError(err);
     inputEl.value = '';
 
