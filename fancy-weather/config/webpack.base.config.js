@@ -2,7 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-let PrettierPlugin = require("prettier-webpack-plugin");
 require('babel-polyfill');
 
 
@@ -36,7 +35,7 @@ module.exports = {
                         outputPath: PATHS.assets + 'fonts',
                     }
                 },
-                exclude: PATHS.src+'/img/'
+                exclude: PATHS.src+'/assets/img/'
             },
             {
                 test: /\.pug$/,
@@ -76,7 +75,7 @@ module.exports = {
                     name: '[name].[ext]',
                     outputPath: PATHS.assets + '/img'
                 },
-                exclude: PATHS.src+'/fonts/'
+                exclude: PATHS.src+'/assets/fonts/'
             }, {
                 test:  /\.(sass|scss)$/,
                 use: [
@@ -105,14 +104,6 @@ module.exports = {
                         options: { sourceMap: true, config: { path: `config/postcss.config.js` } }
                     }
                 ]
-            },
-            {
-                test: /\.(ogg|mp3|wav|mpe?g)$/i,
-                loader: 'file-loader',
-                options: {
-                    name: "[name].[ext]",
-                    outputPath: PATHS.assets + 'audio',
-                }
             }]
     },
     plugins: [
@@ -126,7 +117,6 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             { from: PATHS.src + '/assets/img', to: PATHS.assets +`/img` },
-            // { from: PATHS.src + '/assets/audio',to: PATHS.assets +`/audio` },
             { from: PATHS.src + '/static' },
         ]),
     ],
