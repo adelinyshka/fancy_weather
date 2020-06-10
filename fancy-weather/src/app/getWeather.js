@@ -84,7 +84,7 @@ async function getWeather(
   const humiditySpan = document.createElement('span');
   humiditySpan.classList.add('forecast-detail__humidity');
   humiditySpan.textContent = `${arrayOfLanguages.other[7]} ${Math.round(
-    currently.humidity
+    currently.humidity * 100
   )}%`;
 
   const forecastDetail = document.createElement('div');
