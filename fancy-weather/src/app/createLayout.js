@@ -1,8 +1,7 @@
 import { createHeader } from './createHeader';
 import { getWeather } from './getWeather';
 import { createMapWrapper } from './createMapWrapper';
-import { getDateTime, createBackground, makeAnimatedIcons } from './utils';
-
+import { getDateTime, makeAnimatedIcons, createBackground } from './utils';
 
 async function createLayout(url, forecast, location, lang, degree) {
   const { body } = document;

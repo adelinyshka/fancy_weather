@@ -9,10 +9,28 @@ import {
 } from './initHeaderBtns';
 import { startPreloader } from './preloader';
 
-const lang = localStorage.getItem('lang') || 'ru';
-const meas = localStorage.getItem('meas') || 'C';
-
 async function init() {
+
+  const lang = (function () {
+    if(localStorage['lang']){
+      return localStorage.getItem('lang')
+    }else {
+       localStorage.setItem('lang','ru')
+      return localStorage.getItem('lang')
+    }
+  })();
+
+  const meas = (function () {
+
+
+      if(localStorage['meas']){
+        return localStorage.getItem('meas')
+      }else {
+         localStorage.setItem('meas','C')
+        return localStorage.getItem('meas')
+      }
+  })();
+
   const location = await getUserLocation();
   const forecast = await getForecast(location);
   const { currently } = forecast;

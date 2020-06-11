@@ -1,17 +1,14 @@
 import { data } from './data';
 
 function celsiumToFarenheit(val) {
-  if (!val || typeof val !== 'number') {
+  if (!val || typeof val !== 'number' || val.length > 3) {
     throw new Error('invalid arguments');
   }
   return Math.round((val * 9) / 5 + 32);
 }
 
 function createBackground(url) {
-  const iconRefresh = document.querySelector('.icon-refresh');
-
   document.body.style.background = `url("${url}") center / cover no-repeat`;
-  iconRefresh.classList.remove('icon-refresh--spin');
 }
 
 function getDateTime(lang, gmtOffset = 10800) {
@@ -37,9 +34,7 @@ function getDateTime(lang, gmtOffset = 10800) {
   m = m < 10 ? `0${m}` : m;
   s = s < 10 ? `0${s}` : s;
 
-  const dateTime = `${weekDay} ${day} ${month}        ${h}:${m}:${s}`;
-
-  return dateTime;
+  return `${weekDay} ${day} ${month}        ${h}:${m}:${s}`;
 }
 
 function toDegreesMinSec(inputDegrees) {

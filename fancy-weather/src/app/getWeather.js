@@ -53,7 +53,6 @@ async function getWeather(
   forecastShort.classList.add('forecast-short');
   forecastShort.textContent = arrayOfLanguages.weather[currently.icon];
 
-
   const mainIcon = document.createElement('canvas');
   mainIcon.classList.add('icon-main');
   mainIcon.setAttribute('id', 'icon-main');

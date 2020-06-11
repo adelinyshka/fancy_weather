@@ -1,9 +1,9 @@
 import { showError } from './error';
 import {
-  createBackground,
   getDateTime,
   toDegreesMinSec,
   makeAnimatedIcons,
+  createBackground,
 } from './utils';
 import { getTags } from './getTags';
 import { getImageUrl } from './getImgUrl';

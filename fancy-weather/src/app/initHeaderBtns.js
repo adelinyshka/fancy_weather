@@ -25,6 +25,7 @@ const voiceMessage = new SpeechSynthesisUtterance();
 voiceMessage.volume = 0.5;
 
 function listenTotheWeather() {
+
   const descriptionCard = document.querySelector('.forecast-short').innerText;
   const feelsLikeCard = document.querySelector('.forecast-detail__feels').innerText;
   const temp = document.querySelector('.forecast-current__temp').innerText.split(' ')[0];
@@ -32,7 +33,7 @@ function listenTotheWeather() {
   const humidityCard = document.querySelector('.forecast-detail__humidity').innerText;
   voiceMessage.rate = 1;
   voiceMessage.pitch = 1;
-  voiceMessage.text = ''
+  voiceMessage.text = ' '
     .concat(data.sound[localStorage.getItem('lang')], ' ')
     .concat(temp, ' ')
     .concat(descriptionCard, ',\n  ')
@@ -67,7 +68,8 @@ function initControls(tags, map, meas, timeInterval) {
   });
 
 
-  btnPlayForecast.addEventListener('click', () => {
+  btnPlayForecast.addEventListener('click', (e) => {
+    e.preventDefault();
     window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
 
     const recognition = new window.SpeechRecognition();
@@ -96,7 +98,6 @@ function initControls(tags, map, meas, timeInterval) {
 
   buttonMic.addEventListener('mousedown', turnOnVoiceRec);
 }
-
 
 export {
   setDegreeC, setDegreeF, setLanguage, initControls, listenTotheWeather,
