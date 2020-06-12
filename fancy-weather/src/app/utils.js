@@ -70,7 +70,6 @@ const Skycons = require('../../node_modules/skycons')(window);
 
 const skycons = new Skycons({ color: 'white' });
 
-
 function makeAnimatedIcons(forecast) {
   skycons.add('icon-main', forecast.currently.icon);
 
@@ -91,7 +90,6 @@ function makeAnimatedIcons(forecast) {
 
   skycons.play();
 }
-
 
 function getRandomNumber(num) {
   if (!num || typeof num !== 'number' || num < 0) {

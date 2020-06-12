@@ -12,6 +12,7 @@ const PATHS = {
 };
 
 module.exports = {
+  // target: 'node',
     // BASE config
     externals: {
         paths: PATHS

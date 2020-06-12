@@ -12,7 +12,6 @@ async function createLayout(url, forecast, location, lang, degree) {
   const weatherWrapper = await getWeather(forecast, location, lang, degree);
   wrapper.append(createHeader(lang, degree), weatherWrapper, createMapWrapper());
 
-
   body.innerHTML = '';
   body.appendChild(wrapper);
 
@@ -23,10 +22,8 @@ async function createLayout(url, forecast, location, lang, degree) {
   const timeInterval = setInterval(() => {
     dateTime.textContent = getDateTime(lang);
   }, 1000);
-  dateTime.classList.remove('dots');
 
   return timeInterval;
 }
-
 
 export { createLayout };

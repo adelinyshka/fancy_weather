@@ -16,6 +16,7 @@ function createHeader(lang = 'en', degree = 'C') {
   changeBgBtn.appendChild(refreshIcon);
 
   const selectLang = document.createElement('select');
+  selectLang.setAttribute('title', 'change language');
   selectLang.classList.value = 'form-control lang-select';
 
   const en = document.createElement('option');
@@ -34,16 +35,19 @@ function createHeader(lang = 'en', degree = 'C') {
 
   const measureC = document.createElement('button');
   measureC.setAttribute('type', 'button');
+  measureC.setAttribute('title', 'Celsium measure');
   measureC.classList.value = 'btn btn-success measure-c';
   measureC.textContent = '°C';
 
   const measureF = document.createElement('button');
   measureF.setAttribute('type', 'button');
+  measureF.setAttribute('title', 'Farenheit measure');
   measureF.classList.value = 'btn btn-success measure-f';
   measureF.textContent = '°F';
 
   const btnPlayForecast = document.createElement('button');
   btnPlayForecast.setAttribute('type', 'button');
+  btnPlayForecast.setAttribute('title', 'play forecast');
   btnPlayForecast.classList.value = 'btn btn-success play-forecast';
   btnPlayForecast.innerHTML = '<i class="fas fa-play-circle fa-w-16"></i>';
 
@@ -53,10 +57,12 @@ function createHeader(lang = 'en', degree = 'C') {
   const micBtn = document.createElement('button');
   micBtn.classList.value = 'button-mic';
   micBtn.setAttribute('type', 'button');
+  micBtn.setAttribute('title', 'search by voice');
   micBtn.appendChild(elMic);
 
   const searchBtn = document.createElement('button');
   searchBtn.classList.value = 'btn btn-success button-search';
+  searchBtn.setAttribute('title', 'search button');
   searchBtn.textContent = search;
 
   const inputGroupAppend = document.createElement('div');
@@ -98,7 +104,6 @@ function createHeader(lang = 'en', degree = 'C') {
     default:
       break;
   }
-
 
   const latitude = document.createElement('span');
   latitude.classList.add('latitude');

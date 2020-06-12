@@ -60,7 +60,6 @@ async function getMap(loc, lang) {
       searchControlProvider: 'yandex#search',
     });
 
-
     const myGeoObject = new maps.GeoObject({
       geometry: {
         type: 'Point', // тип геометрии - точка
@@ -69,7 +68,6 @@ async function getMap(loc, lang) {
     });
 
     map.geoObjects.add(myGeoObject);
-
 
     return map;
   } catch (err) {
@@ -92,7 +90,6 @@ async function getGeoPoints(val, lang) {
     throw new Error(`${err.name}(${err.code}): ${err.message}`);
   }
 }
-
 
 async function mapPanTo(map, lang) {
   const inputEl = document.querySelector('.input-search');

@@ -53,13 +53,16 @@ body {
     }
   }
 
+.btn-success:hover{
+  border: 1px solid transparent;
+  }
+
 .button-search {
   margin-left: 10px;
   text-align: center;
   text-decoration: none;
   color: white;
   display: inline-block;
-  border-radius: 0.3em;
   transition: all 0.2s ease-in-out;
   position: relative;
   overflow: hidden;
@@ -89,8 +92,8 @@ body {
   }
 
 .form-wrapper .selected {
-  background-color: #296357;
-  border-color: #296357;
+  background-color: #218838;
+  border-color:#218838;
   }
 
 .form-wrapper .button-refresh {
@@ -107,8 +110,8 @@ body {
 
 .form-wrapper .lang-select:hover, .form-wrapper .lang-select:focus {
   color: white;
-  background-color: $color;
-  border-color: $color;
+  background-color: #218838;
+  border-color: #218838;
   cursor: pointer;
   }
 
@@ -338,6 +341,7 @@ body {
 
 .btn, .form-control {
   border-radius: 0;
+  background-clip: unset;
   }
 
 

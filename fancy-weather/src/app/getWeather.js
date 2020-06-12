@@ -47,7 +47,7 @@ async function getWeather(
   locationEl.innerHTML = locality;
 
   const dateTime = document.createElement('div');
-  dateTime.classList.value = 'date-time dots';
+  dateTime.classList.value = 'date-time';
 
   const forecastShort = document.createElement('div');
   forecastShort.classList.add('forecast-short');
@@ -133,7 +133,6 @@ async function getWeather(
     icon.classList.add(`icon-daily-${i}`);
     icon.setAttribute('width', '54');
     icon.setAttribute('height', '54');
-
 
     el.append(spanDay, icon, spanTempHight, spanTempLow);
     fragment.appendChild(el);

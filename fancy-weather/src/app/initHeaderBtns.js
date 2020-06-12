@@ -3,6 +3,12 @@ import { searchHandler } from './searchHandler';
 import { turnOnVoiceRec } from './turnOnVoiceRec';
 import { data } from './data';
 
+function setLanguage() {
+  const lang = document.querySelector('.lang-select').value.toLowerCase();
+  localStorage.setItem('lang', lang);
+  document.location.reload();
+}
+
 function setDegreeC() {
   const meas = 'C';
   localStorage.setItem('meas', meas);
@@ -15,17 +21,10 @@ function setDegreeF() {
   document.location.reload();
 }
 
-function setLanguage() {
-  const lang = document.querySelector('.lang-select').value.toLowerCase();
-  localStorage.setItem('lang', lang);
-  document.location.reload();
-}
-
 const voiceMessage = new SpeechSynthesisUtterance();
 voiceMessage.volume = 0.5;
 
 function listenTotheWeather() {
-
   const descriptionCard = document.querySelector('.forecast-short').innerText;
   const feelsLikeCard = document.querySelector('.forecast-detail__feels').innerText;
   const temp = document.querySelector('.forecast-current__temp').innerText.split(' ')[0];
@@ -43,7 +42,6 @@ function listenTotheWeather() {
   speechSynthesis.speak(voiceMessage);
 }
 
-
 function initControls(tags, map, meas, timeInterval) {
   const buttonRefresh = document.querySelector('.button-refresh');
   const buttonSearch = document.querySelector('.button-search');
@@ -56,10 +54,6 @@ function initControls(tags, map, meas, timeInterval) {
   const btnPlayForecast = document.querySelector('.play-forecast');
 
 
-  buttonRefresh.addEventListener('click', () => {
-    refreshHandler(newTags);
-  });
-
   buttonSearch.addEventListener('click', (e) => {
     searchHandler(e, map, meas, newInterval, tags).then((res) => {
       newInterval = res.newInterval;
@@ -67,6 +61,9 @@ function initControls(tags, map, meas, timeInterval) {
     });
   });
 
+  buttonRefresh.addEventListener('click', () => {
+    refreshHandler(newTags);
+  });
 
   btnPlayForecast.addEventListener('click', (e) => {
     e.preventDefault();

@@ -10,25 +10,22 @@ import {
 import { startPreloader } from './preloader';
 
 async function init() {
-
-  const lang = (function () {
-    if(localStorage['lang']){
-      return localStorage.getItem('lang')
-    }else {
-       localStorage.setItem('lang','ru')
-      return localStorage.getItem('lang')
+  const lang = (() => {
+    if (localStorage.lang) {
+      return localStorage.getItem('lang');
+    } else {
+      localStorage.setItem('lang', 'ru');
+      return localStorage.getItem('lang');
     }
   })();
 
-  const meas = (function () {
-
-
-      if(localStorage['meas']){
-        return localStorage.getItem('meas')
-      }else {
-         localStorage.setItem('meas','C')
-        return localStorage.getItem('meas')
-      }
+  const meas = (() => {
+    if (localStorage.meas) {
+      return localStorage.getItem('meas');
+    } else {
+      localStorage.setItem('meas', 'C');
+      return localStorage.getItem('meas');
+    }
   })();
 
   const location = await getUserLocation();
@@ -47,11 +44,10 @@ async function init() {
 
   const map = await getMap(location, lang);
   initControls(tags, map, meas, timeInterval);
-  const preloader = document.querySelector('.cssload-wrap');
-  preloader.classList.add('d-none');
+
+  document.querySelector('.cssload-wrap').classList.add('d-none');
 }
 
 startPreloader();
-
 
 init();

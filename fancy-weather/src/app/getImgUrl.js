@@ -2,6 +2,7 @@ import { getRandomNumber } from './utils';
 
 async function getImageUrl(tags) {
   const [season, daytime, forecast] = tags;
+
   let imageURL = '';
   const api = 'a895c1a6ff42551c1897473be397d91e';
   const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${api}&tags='${season},${daytime},${forecast}'&tag_mode=all&sort=relevance&per_page=50&format=json&nojsoncallback=1`;

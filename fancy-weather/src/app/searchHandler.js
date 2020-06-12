@@ -13,7 +13,6 @@ import { getTimezone } from './getTimezone';
 import { data } from './data';
 import { mapPanTo } from './getMaps';
 
-
 async function searchHandler(e, map, meas, timeInterval, tags) {
   e.preventDefault();
 
@@ -27,7 +26,6 @@ async function searchHandler(e, map, meas, timeInterval, tags) {
 
   const lang = document.querySelector('.lang-select').value.toLowerCase();
   const coords = await mapPanTo(map, lang);
-
   if (!coords) {
     return { timeInterval, tags };
   }
@@ -68,7 +66,6 @@ async function searchHandler(e, map, meas, timeInterval, tags) {
   const newInterval = setInterval(() => {
     dateTime.textContent = getDateTime(lang, timeZone.gmtOffset);
   }, 1000);
-  dateTime.classList.remove('dots');
 
   inputSearch.value = '';
   return { newInterval, newTags };

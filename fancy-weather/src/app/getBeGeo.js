@@ -10,7 +10,6 @@ async function getBeGeo(val) {
 
     if (!city) return `<h5>${country}</h5>`;
 
-
     return `<h5>${city}, </h5><h5>${country}</h5>`;
   } catch (err) {
     err.name = 'getGeocode API Error';
